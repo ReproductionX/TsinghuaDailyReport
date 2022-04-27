@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 import os
 import time
 
-telephone = "xxx"
+telephone = "17768100012"
 # 进校还是出校
 in_or_out = "出校"
 in_or_out_text = "出校 Exit"
@@ -16,9 +16,9 @@ in_or_out_text = "出校 Exit"
 in_or_out_reason_text = "出校科研 Off-campus Research"
 in_or_out_reason = "出校科研"
 # 事由描述
-description = "xxx"
+description = "实验室在双清大厦，需要前玩办公"
 # 校外往来地点
-destination = "xxx"
+destination = "双清大厦4号楼"
 
 headers = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -199,6 +199,7 @@ class Report(object):
             "CXSY": description,
             "NQWDD": destination,
             "SQHXRQQS": time.strftime("%Y-%m-%d", time.localtime()),
+            "ZJSFMQT": "是",
             "BZ": "",
             "_o": {
                 "XH": None,
