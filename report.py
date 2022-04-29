@@ -16,7 +16,7 @@ in_or_out_text = "出校 Exit"
 in_or_out_reason_text = "出校科研 Off-campus Research"
 in_or_out_reason = "出校科研"
 # 事由描述
-description = "实验室在双清大厦，需要前玩办公"
+description = "实验室在双清大厦，需要前往办公"
 # 校外往来地点
 destination = "双清大厦4号楼"
 
