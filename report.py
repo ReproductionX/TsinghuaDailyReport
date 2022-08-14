@@ -10,11 +10,11 @@ import time
 
 telephone = "17768100012"
 # 进校还是出校
-in_or_out = "出校"
-in_or_out_text = "出校 Exit"
+in_or_out = "当日出校再进校"
+in_or_out_text = "当日出校且入校 Exit then entry on the day"
 # 进出校事由
-in_or_out_reason_text = "出校科研 Off-campus Research"
-in_or_out_reason = "出校科研"
+in_or_out_reason_text = "其他 Others"
+in_or_out_reason = "其他"
 # 事由描述
 description = "实验室在双清大厦，需要前往办公"
 # 校外往来地点
@@ -186,11 +186,11 @@ class Report(object):
         self.form_data["body"]["dataStores"][key_val]["rowSet"]["primary"].append({
             "XH": student_id,
             # "_t": 3,
-            "XM": name,
-            "SZYX": department,
+            "XM": "田宝林",
+            "SZYX": "软件学院",
             "BJ": "",
             "YXDM": unit_id,
-            "XSLX": student_type,
+            "XSLX": "硕士研究生",
             "LXDH": telephone,
             "JCX_TEXT": in_or_out_text,
             "JCX": in_or_out,
@@ -199,7 +199,10 @@ class Report(object):
             "CXSY": description,
             "NQWDD": destination,
             "SQHXRQQS": time.strftime("%Y-%m-%d", time.localtime()),
+            "ZJSFMQT_TEXT": "是 Yes",
             "ZJSFMQT": "是",
+            "NJXSJ_TEXT": "22:00", "NJXSJ": "22:00", "NCXSJ_TEXT": "10:00", "NCXSJ": "10:00", "ZJZX_TEXT": "请选择",
+            "ZJZX": "", "SFQJ_TEXT": "请选择", "SFQJ": "", "DSSFTY_TEXT": "请选择", "DSSFTY": "",
             "BZ": "",
             "_o": {
                 "XH": None,
@@ -223,7 +226,7 @@ class Report(object):
                "status=update&" \
                "formid={0}&" \
                "workflowAction=startProcess&" \
-               "workitemid=&" \
+               "seqId=&unitId=&applyCode=&workitemid=&" \
                "process={1}".format(self.form_id,
                                     self.process_id)
 
@@ -237,7 +240,136 @@ class Report(object):
                                                 self.process_id,
                                                 self.privilege_id)
 
+        self.form_data["body"]["dataStores"]["uploader_1"] = \
+            {"rowSet":{"primary":[{"div_name":"上传北京健康宝","div_id":"uploader_1","up_id":"fileupload_KKD08AP68H43REQ88ISQI3NVA","file_size":"56026","up_relative_path":"uploadfiles/serviceUpload/0ce14db2-d40e-4052-a681-e240fe6c29ee/2022/8/14/","up_file_new_name":"e8e18088873f486494006105efb0.jpg","up_newurl":"uploadfiles/serviceUpload/0ce14db2-d40e-4052-a681-e240fe6c29ee/2022/8/14/e8e18088873f486494006105efb0.jpg","up_encodeName":"avator1.jpg","_t":1}],"filter":[],"delete":[]},"name":"uploader_1", "pageNumber" :1, "pageSize" : 2147483647, "recordCount":0,"parameters":{"uploader":"true","exist":"true"}}
+        self.form_data["body"]["dataStores"]["uploader_2"] = \
+            {"rowSet":{"primary":[{"div_name":"上传通信行程码","div_id":"uploader_2","up_id":"fileupload_4E3BPTBBHHQ7HIQ3IK60SQ71Q","file_size":"29602","up_relative_path":"uploadfiles/serviceUpload/0ce14db2-d40e-4052-a681-e240fe6c29ee/2022/8/14/","up_file_new_name":"3582171d22724e368b650443c3d2.jpg","up_newurl":"uploadfiles/serviceUpload/0ce14db2-d40e-4052-a681-e240fe6c29ee/2022/8/14/3582171d22724e368b650443c3d2.jpg","up_encodeName":"avator.jpg","_t":1}],"filter":[],"delete":[]},"name":"uploader_2","pageNumber":1,"pageSize":2147483647,"recordCount":0,"parameters":{"uploader":"true","exist":"true"}}
+        self.form_data["body"]["dataStores"]["uploader_3"] = \
+            {"rowSet":{"primary":[{"div_name":"上传个人承诺书","div_id":"uploader_3","up_id":"fileupload_884EK7N66QDQ8F871SSFFGIO1","file_size":"449454","up_relative_path":"uploadfiles/serviceUpload/0ce14db2-d40e-4052-a681-e240fe6c29ee/2022/6/28/","up_file_new_name":"24c5f20077e54201901b5b431c2f.jpg","up_newurl":"uploadfiles/serviceUpload/0ce14db2-d40e-4052-a681-e240fe6c29ee/2022/6/28/24c5f20077e54201901b5b431c2f.jpg","up_encodeName":"Screenshot_2022-06-26-21-24-05-012_com.tencent.mm.jpg","_t":1}],"filter":[],"delete":[]},"name":"uploader_3","pageNumber":1,"pageSize":2147483647,"recordCount":0,"parameters":{"uploader":"true","exist":"true"}}
+        self.form_data["body"]["dataStores"]["uploader_0"] = {"rowSet":{"primary":[{"_t":1}],"filter":[],"delete":[]},"name":"uploader_0","pageNumber":1,"pageSize":2147483647,"recordCount":0,"parameters":{"uploader":"true","exist":"true"}}
+        self.form_data["body"]["dataStores"]["uploader_4"] = {"rowSet":{"primary":[{"div_name":"上传核酸","div_id":"uploader_4","up_id":"fileupload_DGM5LQKPNDMJOBDCR35IUVIV1","file_size":"477056","up_relative_path":"uploadfiles/serviceUpload/0ce14db2-d40e-4052-a681-e240fe6c29ee/2022/6/28/","up_file_new_name":"7d07e36af3594cf0a1cdc5178052.jpg","up_newurl":"uploadfiles/serviceUpload/0ce14db2-d40e-4052-a681-e240fe6c29ee/2022/6/28/7d07e36af3594cf0a1cdc5178052.jpg","up_encodeName":"Screenshot_2022-06-28-23-09-29-249_com.tencent.mm.jpg","_t":1},{"div_name":"上传核酸","div_id":"uploader_4","up_id":"fileupload_HKDMOAO06BVGV401N9V7QGA62","file_size":"475550","up_relative_path":"uploadfiles/serviceUpload/0ce14db2-d40e-4052-a681-e240fe6c29ee/2022/7/1/","up_file_new_name":"5b91eecfd5f040aba2a66d0d6a26.jpg","up_newurl":"uploadfiles/serviceUpload/0ce14db2-d40e-4052-a681-e240fe6c29ee/2022/7/1/5b91eecfd5f040aba2a66d0d6a26.jpg","up_encodeName":"Screenshot_2022-07-01-08-28-44-042_com.tencent.mm.jpg","_t":1},{"div_name":"上传核酸","div_id":"uploader_4","up_id":"fileupload_P57NSQ63IUNII5PIAGUQENPIO","file_size":"491666","up_relative_path":"uploadfiles/serviceUpload/0ce14db2-d40e-4052-a681-e240fe6c29ee/2022/7/4/","up_file_new_name":"7ef25ce597844cdca010cb21b1d8.jpg","up_newurl":"uploadfiles/serviceUpload/0ce14db2-d40e-4052-a681-e240fe6c29ee/2022/7/4/7ef25ce597844cdca010cb21b1d8.jpg","up_encodeName":"Screenshot_2022-07-04-19-21-24-347_com.tencent.mm.jpg","_t":1}],"filter":[],"delete":[]},"name":"uploader_4","pageNumber":1,"pageSize":2147483647,"recordCount":0,"parameters":{"uploader":"true","exist":"true"}}
         headers_ = self.session.headers
+        self.form_data["body"]["dataStores"]["variable"] = {
+            "rowSet": {
+                "primary": [
+                    {
+                        "name": "学生类型",
+                        "source": "process",
+                        "type": "string",
+                        "value": "硕士研究生",
+                        "_t": 1,
+                        "_o": {
+                            "value": ""
+                        }
+                    },
+                    {
+                        "name": "BUSINESS_UNIT",
+                        "source": "process",
+                        "type": "string",
+                        "value": ""
+                    },
+                    {
+                        "name": "进出校类型",
+                        "source": "process",
+                        "type": "string",
+                        "value": "其他 Others",
+                        "_t": 1,
+                        "_o": {
+                            "value": ""
+                        }
+                    },
+                    {
+                        "name": "班级",
+                        "source": "process",
+                        "type": "string",
+                        "value": "201",
+                        "_t": 1,
+                        "_o": {
+                            "value": ""
+                        }
+                    },
+                    {
+                        "name": "是否冬奥志愿者",
+                        "source": "process",
+                        "type": "string",
+                        "value": "0",
+                        "_t": 1,
+                        "_o": {
+                            "value": ""
+                        }
+                    },
+                    {
+                        "name": "学号",
+                        "source": "process",
+                        "type": "string",
+                        "value": "2020214026",
+                        "_t": 1,
+                        "_o": {
+                            "value": ""
+                        }
+                    },
+                    {
+                        "name": "进出校",
+                        "source": "process",
+                        "type": "string",
+                        "value": "当日出校再进校",
+                        "_t": 1,
+                        "_o": {
+                            "value": ""
+                        }
+                    },
+                    {
+                        "name": "SYS_USER",
+                        "source": "interface",
+                        "type": "string",
+                        "value": "田宝林"
+                    },
+                    {
+                        "name": "SYS_UNIT",
+                        "source": "interface",
+                        "type": "string",
+                        "value": "软件学院 "
+                    },
+                    {
+                        "name": "SYS_DATE",
+                        "source": "interface",
+                        "type": "date",
+                        "value": "1660466743207"
+                    },
+                    {
+                        "name": "716e67c5-a4ae-4d51-95b8-92c4a9c5.ID_NUMBER",
+                        "value": "2020214026"
+                    },
+                    {
+                        "name": "716e67c5-a4ae-4d51-95b8-92c4a9c5.USER_NAME",
+                        "value": "田宝林"
+                    },
+                    {
+                        "name": "716e67c5-a4ae-4d51-95b8-92c4a9c5.UNIT_NAME",
+                        "value": "软件学院"
+                    },
+                    {
+                        "name": "716e67c5-a4ae-4d51-95b8-92c4a9c5.UNIT_ID",
+                        "value": "410"
+                    },
+                    {
+                        "name": "716e67c5-a4ae-4d51-95b8-92c4a9c5.YHLB",
+                        "value": "硕士研究生"
+                    },
+                    {
+                        "name": "503992773193728.CNT",
+                        "value": "0"
+                    }
+                ],
+                "filter": [],
+                "delete": []
+            },
+            "name": "variable",
+            "pageNumber": 1,
+            "pageSize": 2147483647,
+            "recordCount": 0,
+            "parameters": {}
+        }
         headers_["Origin"] = "https://thos.tsinghua.edu.cn"
         headers_["Host"] = "thos.tsinghua.edu.cn"
         headers_["Sec-Fetch-Mode"] = "cors"
@@ -247,6 +379,7 @@ class Report(object):
         response = self.session.post(url_, data=json.dumps(self.form_data), headers=headers_)
         if response.status_code == requests.codes.OK:
             print("提交申请出校成功")
+            print(response.text)
         else:
             print("提交申请出校失败")
 
